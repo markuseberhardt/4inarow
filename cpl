@@ -199,13 +199,16 @@ while not terminal_test(m):
     if not terminal_test(m):
         print(m)
         m, _ = maximize(m,-inf,inf,1)
-        print(m)
+        #print(m)
     showstate(m)
-    eingabe = int(input("Bitte 1 Zahl eingeben (Spalte von 0-6): "))
-    m.append(eingabe)
+    if not terminal_test(m):
+        print(m)
+        m, _ = minimize(m,-inf,inf,1)
+        #print(m)
+    showstate(m)
     
 
 showstate(m)
-if evaluation(m) == -100000: print("Spieler o hat gewonnen")
-elif evaluation(m) == 100000: print("Spieler x (= Computer) hat gewonnen")
+if evaluation(m) == -100000: print("Spieler o (Computer2) hat gewonnen")
+elif evaluation(m) == 100000: print("Spieler x (Computer1) hat gewonnen")
 else: print("Unentschieden")
